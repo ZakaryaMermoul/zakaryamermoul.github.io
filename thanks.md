@@ -2,11 +2,11 @@
 title: Acknowledgment
 permalink: /thanks/
 layout: page
-excerpt: Thanks to amazing people i met, who helped me out, connecting me with other good people, directing me when am lost, pulling me from ordinary to be great.
+excerpt: So grateful for all of the amazing people i have met, who helped me out, connected me with other good people, giving me advices when i'm down, pulling me from ordinary to extraordinary.
 comments: false
 ---
 
-Thanks to amazing people i met, who helped me out, connecting me with other good people, directing me when am lost, pulling me from ordinary to be great.
+So grateful for all of the amazing people i have met, who helped me out, connected me with other good people, giving me advices when i'm down, directing me when am lost, pulling me from ordinary to extraordinary.
 
 <hr>
 
