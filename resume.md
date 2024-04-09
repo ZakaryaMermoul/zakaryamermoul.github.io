@@ -2,6 +2,6 @@
 title: Acknowledgment
 permalink: /resume/
 layout: resume
-excerpt: Thanks to amazing people that i met, who help me out from follishness, connecting me with another good person, giving some advice when i'm at a bad things, pulling me from ordinary to be great.
+excerpt: So grateful for all of the amazing people i have met, who helped me out, connected me with other good people, giving me advices when i'm down, pulling me from ordinary to extraordinary.
 comments: false
 ---
