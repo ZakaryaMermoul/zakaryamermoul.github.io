@@ -10,7 +10,7 @@ He's an energy systems engineer , living in Algeria. the blog for documenting hi
 
 If you have a question, just send him a letter.
 
-You can [report](https://github.com/w4spy/w4spy.github.io/issues/new) if there is a broken link(s) or somethings else.
+You can [report](https://github.com/ZakaryaMermoul/zakaryamermoul.github.io/issues/new) if there is a broken link(s) or somethings else.
 
 **may u needs ✨**
 
