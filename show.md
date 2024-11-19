@@ -1,8 +1,7 @@
-#SO FAR REACHED
 ---
 title: gallery 
 permalink: /show/
-layout: page
+layout: show
 excerpt: gallery and slides,for you to get an idea.
 comments: false
 ---
