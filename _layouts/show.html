@@ -1,7 +1,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>for your eyes only</title>
+    <title>For Your Eyes Only</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;600&display=swap');
 
@@ -11,45 +11,49 @@
             background-color: #2c3e50;
             color: #ecf0f1;
         }
+
         .slider-container {
-            width: 90%;
+            width: 100%;
             max-width: 800px;
-            margin: 50px auto;
+            margin: 20px auto;
             overflow: hidden;
             position: relative;
             border-radius: 10px;
             background: #34495e;
             padding: 20px;
         }
+
         .slider {
             display: flex;
             transition: transform 0.5s ease-in-out;
         }
+
         .slide {
             flex: 0 0 100%;
             max-width: 100%;
             text-align: center;
-            position: relative;
         }
-        .slide-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+
         .thumbnail {
             width: 100%;
             max-width: 600px;
-            margin: 10px 0;
             cursor: pointer;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
         }
+
+        .thumbnail:hover {
+            transform: scale(1.05);
+        }
+
         .description {
             font-size: 1.2rem;
             margin: 15px 0;
             font-weight: 600;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
         }
+
         .nav-buttons {
             position: absolute;
             top: 50%;
@@ -57,7 +61,9 @@
             display: flex;
             justify-content: space-between;
             transform: translateY(-50%);
+            pointer-events: none; /* Prevent blocking thumbnails */
         }
+
         .nav-buttons button {
             background-color: #e74c3c;
             color: white;
@@ -66,13 +72,13 @@
             cursor: pointer;
             border-radius: 50%;
             font-size: 1.2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            pointer-events: all; /* Allow interaction with buttons */
         }
+
         .nav-buttons button:hover {
             background-color: #c0392b;
         }
 
-        /* Pop-out video styles */
         .video-overlay {
             display: none;
             position: fixed;
@@ -85,9 +91,11 @@
             justify-content: center;
             align-items: center;
         }
-        .video-overlay video {
-            width: 70%; /* Increase size to 70% of the screen width */
-            height: auto; /* Maintain aspect ratio */
+
+        .video-overlay iframe {
+            width: 70%;
+            height: 70%;
+            border: none;
             border-radius: 10px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
         }
@@ -99,22 +107,22 @@
             <!-- Slide 1 -->
             <div class="slide">
                 <div class="slide-content">
-                    <img src="../assets/slide/die-cast.webp" class="thumbnail" alt="Thumbnail 1">
-                    <p class="description">Aluminuim die Casting</p>
+                    <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" class="thumbnail" alt="Thumbnail 1">
+                    <p class="description">Rick Astley - Never Gonna Give You Up</p>
                 </div>
             </div>
             <!-- Slide 2 -->
             <div class="slide">
                 <div class="slide-content">
-                    <img src="../assets/slide/pvc.jpg" class="thumbnail" alt="Thumbnail 2">
-                    <p class="description">PVC sheet production</p>
+                    <img src="https://img.youtube.com/vi/3JZ_D3ELwOQ/hqdefault.jpg" class="thumbnail" alt="Thumbnail 2">
+                    <p class="description">Queen - Bohemian Rhapsody</p>
                 </div>
             </div>
             <!-- Slide 3 -->
             <div class="slide">
                 <div class="slide-content">
-                    <img src="../assets/slide/bakery.jpg" class="thumbnail" alt="Thumbnail 3">
-                    <p class="description">cookies and bakery</p>
+                    <img src="https://img.youtube.com/vi/tgbNymZ7vqY/hqdefault.jpg" class="thumbnail" alt="Thumbnail 3">
+                    <p class="description">Piano Music - Calm Background</p>
                 </div>
             </div>
         </div>
@@ -126,7 +134,7 @@
 
     <!-- Video Overlay -->
     <div class="video-overlay" id="videoOverlay">
-        <video id="overlayVideo" controls></video>
+        <iframe id="overlayIframe" allowfullscreen></iframe>
     </div>
 
     <script>
@@ -135,8 +143,15 @@
         const prevButton = document.getElementById('prev');
         const nextButton = document.getElementById('next');
         const videoOverlay = document.getElementById('videoOverlay');
-        const overlayVideo = document.getElementById('overlayVideo');
+        const overlayIframe = document.getElementById('overlayIframe');
         let currentSlide = 0;
+
+        // YouTube video URLs
+        const videoURLs = [
+            "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            "https://www.youtube.com/embed/3JZ_D3ELwOQ",
+            "https://www.youtube.com/embed/tgbNymZ7vqY"
+        ];
 
         // Show slide based on index
         function showSlide(index) {
@@ -147,25 +162,17 @@
         // Add event listeners to thumbnails
         slides.forEach((slide, index) => {
             const thumbnail = slide.querySelector('.thumbnail');
-            const videoURLs = [
-                "https://www.w3schools.com/html/mov_bbb.mp4",
-                "https://www.w3schools.com/html/movie.mp4",
-                "https://www.w3schools.com/html/mov_bbb.mp4"
-            ];
-
             thumbnail.addEventListener('click', () => {
-                overlayVideo.src = videoURLs[index];
+                overlayIframe.src = videoURLs[index];
                 videoOverlay.style.display = 'flex';
-                overlayVideo.play();
             });
         });
 
-        // Close overlay on clicking outside the video
+        // Close overlay on clicking outside the iframe
         videoOverlay.addEventListener('click', (e) => {
             if (e.target === videoOverlay) {
                 videoOverlay.style.display = 'none';
-                overlayVideo.pause();
-                overlayVideo.src = '';
+                overlayIframe.src = ''; // Clear iframe source
             }
         });
 
